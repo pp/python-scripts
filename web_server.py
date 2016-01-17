@@ -1,3 +1,8 @@
+"""
+This is a simple web server. It runs through each URL pattern in the 'urls'
+variable and stops at the first one that matches the requested URL.
+"""
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import re
 
