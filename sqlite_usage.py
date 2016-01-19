@@ -13,8 +13,13 @@ db = sqlite3.connect(':memory:') # Create database in RAM
 cursor = db.cursor()
 
 cursor.execute('''
-    CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT NOT NULL UNIQUE,
-    email TEXT NOT NULL UNIQUE, password TEXT NOT NULL, creation_time TEXT NOT NULL)
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY,
+  username TEXT NOT NULL UNIQUE,
+  email TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL,
+  creation_time TEXT NOT NULL
+);
 ''')
 db.commit()
 
@@ -26,15 +31,21 @@ username2 = 'user'
 email2 = 'admin@newmail.com'
 password2 = '123456'
 
-cursor.execute('''INSERT INTO users (username, email, password, creation_time)
-    VALUES(?,?,?,?)''', (username1, email1, password1, get_datetime()))
+cursor.execute('''
+INSERT INTO users (username, email, password, creation_time)
+VALUES (?,?,?,?);
+''', (username1, email1, password1, get_datetime()))
 
-cursor.execute('''INSERT INTO users (username, email, password, creation_time)
-    VALUES(?,?,?,?)''', (username2, email2, password2, get_datetime()))
+cursor.execute('''
+INSERT INTO users (username, email, password, creation_time)
+VALUES (?,?,?,?)
+''', (username2, email2, password2, get_datetime()))
 
 db.commit()
 
-cursor.execute('''SELECT username, email, password, creation_time FROM users''')
+cursor.execute('''
+SELECT username, email, password, creation_time FROM users;
+''')
 all_rows = cursor.fetchall()
 for row in all_rows:
     print('{0} {1} {2} {3}'.format(row[0], row[1], row[2], row[3]))

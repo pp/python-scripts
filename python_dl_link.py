@@ -21,7 +21,7 @@ pattern = re.compile(r'^\d[.]\d([.]\d)?/$')
 versions = []
 
 for a in links:
-    if (pattern.match(a['href'])):
+    if pattern.match(a['href']):
         versions.append(a['href'].replace('/', ''))
 
 version = versions[-1]

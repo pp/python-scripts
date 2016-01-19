@@ -1,6 +1,7 @@
 """
-This is a simple web server. It runs through each URL pattern in the 'urls'
-variable and stops at the first one that matches the requested URL.
+This is a simple web server. It runs through each URL pattern
+in the 'urls' variable and stops at the first one that matches
+the requested URL.
 """
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -21,12 +22,12 @@ class MyServer(BaseHTTPRequestHandler):
 
         for x in urls:
             pattern = re.compile(x[0])
-            if (pattern.match(self.path)):
+            if pattern.match(self.path):
                 message = x[1]
                 matched = True
                 break
 
-        if (matched):
+        if matched:
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
