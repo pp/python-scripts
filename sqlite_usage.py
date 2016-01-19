@@ -33,13 +33,11 @@ password2 = '123456'
 
 cursor.execute('''
 INSERT INTO users (username, email, password, creation_time)
-VALUES (?,?,?,?);
-''', (username1, email1, password1, get_datetime()))
+VALUES (?,?,?,?);''', (username1, email1, password1, get_datetime()))
 
 cursor.execute('''
 INSERT INTO users (username, email, password, creation_time)
-VALUES (?,?,?,?)
-''', (username2, email2, password2, get_datetime()))
+VALUES (?,?,?,?);''', (username2, email2, password2, get_datetime()))
 
 db.commit()
 
