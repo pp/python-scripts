@@ -14,13 +14,11 @@ r = requests.get(url)
 data = r.text
 soup = BeautifulSoup(data, 'html.parser')
 
-links = soup.findAll('a')
-
 pattern = re.compile(r'^\d[.]\d([.]\d)?/$')
 
 versions = []
 
-for a in links:
+for a in soup.find_all('a', href=True):
     if pattern.match(a['href']):
         versions.append(a['href'].replace('/', ''))
 

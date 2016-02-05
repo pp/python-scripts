@@ -21,12 +21,12 @@ soup = BeautifulSoup(data, 'html.parser')
 
 bday = soup.find('span', {'class':'bday'})
 if bday is not None:
-    bday = ''.join(map(str, bday.contents)).strip()
+    bday = bday.get_text()
     bday = datetime.datetime.strptime(bday, '%Y-%m-%d')
 
 dday = soup.find('span', {'class':'dday'})
 if dday is not None:
-    dday = ''.join(map(str, dday.contents)).strip()
+    dday = dday.get_text()
     dday = datetime.datetime.strptime(dday, '%Y-%m-%d')
 
 if bday is not None:
