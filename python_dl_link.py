@@ -4,9 +4,8 @@ installer for the latest stable release of Python.
 """
 
 import re
-
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
 
 url = 'https://www.python.org/ftp/python/'
 

@@ -5,10 +5,9 @@ and death and the age at death is returned.
 """
 
 import datetime
-
+import requests
 from bs4 import BeautifulSoup
 from dateutil.relativedelta import relativedelta
-import requests
 
 name = input('Name: ')
 name.replace(' ', '_')

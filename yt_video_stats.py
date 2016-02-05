@@ -2,9 +2,9 @@
 Takes a Youtube video link and returns some stats.
 """
 
-from bs4 import BeautifulSoup
 import re
 import requests
+from bs4 import BeautifulSoup
 
 url = input('Link to Youtube video: ')
 

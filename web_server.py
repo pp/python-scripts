@@ -4,8 +4,8 @@ in the 'urls' variable and stops at the first one that matches
 the requested URL.
 """
 
-from http.server import BaseHTTPRequestHandler, HTTPServer
 import re
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 hostName = 'localhost'
 hostPort = 4567

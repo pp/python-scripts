@@ -3,8 +3,8 @@ Creates a SQLite database, creates a user table
 and performs a few inserts and a SELECT query.
 """
 
-from datetime import datetime, timezone
 import sqlite3
+from datetime import datetime, timezone
 
 def get_datetime():
     return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
