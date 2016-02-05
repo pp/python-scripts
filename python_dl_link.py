@@ -14,13 +14,10 @@ data = r.text
 soup = BeautifulSoup(data, 'html.parser')
 
 pattern = re.compile(r'^\d[.]\d([.]\d)?/$')
-
 versions = []
 
 for a in soup.find_all('a', href=True):
     if pattern.match(a['href']):
         versions.append(a['href'].replace('/', ''))
 
-version = versions[-1]
-
-print('{0}{1}/python-{1}-amd64.exe'.format(url, version))
+print('{0}{1}/python-{1}-amd64.exe'.format(url, versions[-1]))
